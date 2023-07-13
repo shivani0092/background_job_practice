@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: 12345678
+  pool: 5
+  # schema_search_path: "public, shared_extensions"
+  timeout: 5000
+
+development:
+  <<: *default
+  database: background_job_practice_development
+
+test:
+  <<: *default
+  database: background_job_practice_test
+
+production:
+  <<: *default
+  database: background_job_practice_production
+  # username: background_job_practice
+  # password: <%= ENV["BACKGROUND_JOB_PRACTICE_DATABASE_PASSWORD"] %>
